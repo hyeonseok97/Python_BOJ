@@ -1,0 +1,12 @@
+# 동전 0
+
+type, goal = map(int, input().split())
+money_type =[int(input()) for _ in range(type)]
+money_type.sort(reverse=True)
+count = 0
+
+for i in money_type:
+    count += goal // i
+    goal = goal % i
+
+print(count)  
