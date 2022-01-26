@@ -1,0 +1,4 @@
+# A-B
+
+a, b = map(int,input().split()) # 공백으로 두 정수를 입력
+print(a-b) # 차 출력
