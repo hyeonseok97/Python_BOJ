@@ -1,0 +1,12 @@
+# ATM
+
+people = int(input()) # 사람의 수
+min = list(map(int, input().split())) # 입력받은 수를 리스트로 형성
+min.sort() # 리스트를 오름차순으로 설정
+sum = 0 # 기다리는 시간
+
+for i in range(len(min)):
+    for j in range(i+1):
+        sum += min[j]
+
+print(sum) # 총 기달린 최소한의 시간 출력
