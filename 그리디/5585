@@ -1,0 +1,11 @@
+# 거스름돈
+
+money = 1000 - int(input())
+count = 0
+money_type = [500, 100, 50, 10, 5, 1]
+
+for i in money_type:
+    count += money//i
+    money = money%i
+
+print(count) 
