@@ -1,0 +1,4 @@
+# A/B
+
+a, b = map(int, input().split()) # 두 정수를 공백을 기준으로 입력
+print(a/b)# 나눗셈 출력
