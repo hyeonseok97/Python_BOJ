@@ -1,0 +1,17 @@
+# 수들의 합
+
+# 합을 정수로 입력받음
+sum_input = int(input())
+result = 0
+maximum = 1
+
+# 1부터 차례대로 더한 결과를 합과 비교
+while result < sum_input:
+    result += maximum
+    if result == sum_input:
+        print(maximum)
+        break
+    elif result > sum_input:
+        print(maximum-1)
+        break 
+    maximum += 1
