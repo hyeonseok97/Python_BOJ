@@ -1,0 +1,4 @@
+# We love kriii
+
+for i in range(2): # 같은 문장을 두 번 출력
+    print('강한친구 대한육군')
