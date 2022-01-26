@@ -1,0 +1,28 @@
+# 30
+
+# N 값을 입력 받음.
+n = input()
+
+# 입력받은 값을 자릿수를 리스트에 할당.
+list = []
+for i in n[0:len(n)]:
+    list.append(i)
+
+# 리스트를 내림차순으로 정렬
+list.sort(reverse= True)
+
+# 값에 0이 있는지 판단 --> 없으면 30배수 아님.
+if int(list[len(n)-1]) != 0:
+    print(-1)
+
+# 값에 0이 있다면 3으로 나눈 나머지를 통해 판단
+else: 
+    number_str = '0'
+    for i in range(len(list)):
+        number_str += list[i]
+    number = int(number_str)
+    
+    if number % 30 == 0:
+        print(number)
+    else:
+        print(-1)
