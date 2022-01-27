@@ -1,0 +1,27 @@
+# 주유소
+
+import sys
+
+# 도시의 개수 N을 입력
+city = int(input())
+
+# 인접한 두 도시를 연결하는 도로의 길이를 왼쪽부터 N-1 입력
+length = list(map(int, sys.stdin.readline().split()))
+
+# 왼쪽 도시부터의 리터당 가격 N개 입력
+price = list(map(int, sys.stdin.readline().split()))
+minimum = length[0]*price[0]
+minimum_price = price[0]
+
+# 처음 도시에서 다음 도시까지 주유
+# 처음 도시가 저렴하면 그 다음 도시까지 주유
+# 처음 도시가 비싸면 그 다음 도시까지 거리만큼 주유
+
+for i in range(1, city-1):
+    if minimum_price <= price[i]:
+        minimum += (minimum_price * length[i])
+    else:
+        minimum_price = price[i]
+        minimum += (minimum_price * length[i])
+
+print(minimum)
