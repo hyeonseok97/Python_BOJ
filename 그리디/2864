@@ -1,0 +1,51 @@
+# 5와 6의 차이
+
+import sys
+
+# 두 정수를 공백을 기준으로 입력
+a, b = sys.stdin.readline().split()
+a_str, b_str = '0', '0'
+
+# 두 정수를 리스트화
+a_list=[]
+b_list=[]
+
+for i in range(len(a)):
+    a_list.append(a[i])
+for i in range(len(b)):
+    b_list.append(b[i])
+
+# 리스트에 5가 존재하면 그 값을 6으로 변경
+for i in range(len(a_list)):
+    if a_list[i] == '5':
+        a_list[i] = '6'
+    a_str += a_list[i]
+    a_num = int(a_str)
+
+for i in range(len(b_list)):
+    if b_list[i] == '5':
+        b_list[i] = '6'
+    b_str += b_list[i]
+    b_num = int(b_str)
+
+    maximum = a_num + b_num
+
+a_str, b_str = '0', '0'
+# 리스트에 6가 존재하면 그 값을 5으로 변경
+for i in range(len(a_list)):
+    if a_list[i] == '6':
+        a_list[i] = '5'
+    a_str += a_list[i]
+    a_num = int(a_str)
+
+for i in range(len(b_list)):
+    if b_list[i] == '6':
+        b_list[i] = '5'
+    b_str += b_list[i]
+    b_num = int(b_str)
+
+    minimum = a_num + b_num
+        
+
+# 최댓값, 최솟값 출력
+print(minimum, maximum)
