@@ -1,0 +1,21 @@
+# 뒤집기
+
+# 뒤집을 문자열을 입력받음
+state = input()
+
+# 1을 0으로 뒤집은 횟수와 0을 1로 뒤집는 횟수를 비교하여 최소 값을 출력
+ans = list(state[0])
+
+
+for i in range(1,len(state)):
+    if state[i] == ans[-1]:
+        continue
+    else:
+        ans.append(state[i])
+
+count_1 = ans.count('1')
+count_0 = ans.count('0')
+
+# 뒤집을 최소 횟수 출력
+print(min(count_0, count_1))
+    
