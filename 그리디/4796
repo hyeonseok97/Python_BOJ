@@ -1,0 +1,23 @@
+#캠핑
+
+# 각 케이스 별로 공백을 기준으로 L, P, V 입력
+# 마지막은 0, 0, 0
+k = 1
+max_list =[]
+
+while True:
+    l, p, v = map(int, input().split())
+    if l == 0 and p == 0 and v == 0:
+        break
+    if v%p > l:
+        maximum = ((v//p) * l) + l
+    elif v%p <= l:
+        maximum = ((v//p) * l) + (v%p)            
+    max_list.append(maximum)
+
+for i in max_list:
+    print(f'Case {k}: {i}')
+    k += 1
+    
+
+# 최대로 이용할 수 있는 일 수는 (V//P) * L + (V%P) 
