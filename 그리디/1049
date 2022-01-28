@@ -1,0 +1,33 @@
+# 기타줄
+
+# 필요한 기타줄의 개수 n, 브랜드 m
+n, m = map(int,input().split())
+price = []
+
+# 6개 패키지의 가격, 낱개의 가격
+for i in range(m):
+    six, one = map(int, input().split())
+    price.append((six,one))
+
+price_six = sorted(price, key=lambda x: x[0])
+price_one = sorted(price, key=lambda x: x[1])
+
+#6개 + 낱개, 낱개, 6개 중 가장 최소금액
+
+#6개로만
+if n % 6 != 0:
+    price_6 = (price_six[0][0]*((n//6)+1))
+else:
+    price_6 = (price_six[0][0]*(n//6))
+
+#낱개로만
+price_1 = price_one[0][1] * n
+
+#혼합
+price_mix = 0
+if n % 6 != 0:
+    price_mix = (price_six[0][0]*(n//6)) + ((n%6)*price_one[0][1])
+else:
+    price_mix = (price_six[0][0]*(n//6))
+
+print(min(price_6, price_1, price_mix))
