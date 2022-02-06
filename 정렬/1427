@@ -1,0 +1,15 @@
+# 소트 인사이드
+
+# 수 문자열로 입력
+n = input()
+number =[]
+
+# 각 문자열을 리스트에 추가
+for i in range(len(n)):
+    number.append(int(n[i]))
+
+# 리스트를 내림차순으로 정렬
+number.sort(reverse=True)
+
+for i in number:
+    print(i, end='')
