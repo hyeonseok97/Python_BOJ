@@ -1,0 +1,17 @@
+# 단어 정렬
+
+# 단어의 개수 n을 입력
+n = int(input())
+word = set()
+
+# 중복 값을 제거하기위해서 집합 자료형을 사용
+for i in range(n):
+    word.add(input())
+
+word = list(word)
+word.sort()
+word.sort(key=len)
+
+for i in word:
+    print(i)
+            
