@@ -1,0 +1,19 @@
+# 좌표 정렬하기
+
+# 좌표의 개수 n을 입력
+n = int(input())
+point = []
+
+# 좌표를 튜플로 리스트에 할당
+for i in range(n):
+    a, b = map(int,input().split())
+    point.append((a,b))
+
+# 리스트 내장함수 이용
+point.sort()
+
+# 각 
+for i in point:
+    a = i[0]
+    b = i[1]
+    print(a, b)
