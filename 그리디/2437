@@ -1,0 +1,19 @@
+# 저울 
+
+import sys
+
+n = int(sys.stdin.readline().rstrip()) # 추의 개수를 입력
+weight = list(map(int,input().split())) # 각 추의 무게를 리스트로 할당
+weight.sort() # 추의 무게를 오름차순으로 정렬
+
+min = 1
+
+# min값 보다 추의 무게가 더 큰 경우에 for문 탈출
+
+for i in weight:
+    if min >= i:
+        min += i
+    else:
+        break
+
+print(min)
