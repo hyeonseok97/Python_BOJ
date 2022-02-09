@@ -1,0 +1,26 @@
+# 나무 자르기 
+
+# 이것이 코딩테스트다 <이진탐색> - <떡볶이 떡 문제> --> 파라메트릭 문제로 이진탐색을 통해 접근하자.
+# 나무의 수 n, 집으로 가져가려는 나무의 길이 m을 입력
+# 나무의 높이들을 입력받음.
+
+n, m = map(int,input().split())
+length = list(map(int,input().split()))
+
+start = 0
+end = max(length)
+result = 0
+
+while start <= end:
+    total = 0
+    mid = (start + end) //2
+    for i in length:
+        if i > mid:
+            total += (i-mid)
+    if total >= m:
+        result = mid
+        start = mid + 1
+    else:
+        end = mid - 1
+
+print(result)
