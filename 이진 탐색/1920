@@ -1,0 +1,36 @@
+# 수 찾기
+
+# 자연수 n을 입력 받음
+# n개 만큼 정수가 입력
+# m을 입력 받음
+# m개의 수를 입력 받고, 이 수들이 처음 입력받은 n개의 정수에 있다면 1을 출력, 없으면 0을 출력
+
+# 순차 탐색을 하면, 시간초과 판정 받을 것 같음.
+# 이진 탐색을 하자. 
+
+def binary_search(array,target,start,end):
+    if start > end:
+        return None
+    mid = (start+end) // 2
+
+    if array[mid] == target:
+        return mid
+    elif array[mid] > target:
+        return binary_search(array,target,start,mid-1)
+    else:
+        return binary_search(array,target,mid+1,end)
+
+n = int(input())
+n_list = list(map(int,input().split()))
+n_list.sort()
+
+m = int(input())
+m_list = list(map(int,input().split()))
+
+for target in m_list:
+    result = binary_search(n_list,target,0,n-1)
+    if result == None:
+        print(0)
+    else:
+        print(1)
+        
