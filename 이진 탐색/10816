@@ -1,0 +1,27 @@
+# 숫자 카드 2
+
+# 상근이가 가지고 있는 숫자 카드 n개
+# 숫자 카드에 적혀있는 정수를 입력
+# 정수 m개를 입력
+# m개의 정수를 공백으로 구분하여 입력
+
+# 데이터의 범위가 넓으므로 이진탐색으로 접근
+# 데이터의 갯수를 알아야 하므로 bisect 라이브러리 이용
+
+from bisect import bisect_left,bisect_right
+
+def count_by_range(array,left_value,right_value):
+    left = bisect_left(array,left_value)
+    right = bisect_right(array,right_value)
+    return right - left
+
+n = int(input())
+n_list = list(map(int,input().split()))
+n_list.sort()
+
+m = int(input())
+m_list = list(map(int,input().split()))
+
+for x in m_list:
+    result = count_by_range(n_list,x,x)
+    print(result, end=' ') 
