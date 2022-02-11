@@ -1,0 +1,17 @@
+# 1, 2, 3 더하기
+
+test = int(input()) 
+test_list = []
+for i in range(test):
+    test_list.append(int(input()))
+
+d = [0]*(max(test_list)+1)
+d[1] = 1
+d[2] = 2
+d[3] = 4
+
+for i in range(4, max(test_list)+1):
+    d[i] = d[i-1] + d[i-2] + d[i-3]
+
+for i in range(len(test_list)):
+    print(d[test_list[i]])
