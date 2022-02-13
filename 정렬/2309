@@ -1,0 +1,22 @@
+# 일곱 난쟁이
+
+# 아홉 난쟁이의 키가 9개의 줄에 걸쳐 입력된 값을 리스트에 할당
+array = []
+for i in range(9):
+    array.append(int(input()))
+
+array.sort() # 일곱 난쟁이의 키를 오름차순으로 정렬
+
+sum = sum(array)
+result = sum - 100
+
+for i in range(len(array)):
+    a = array[i]
+    b = int(result) - array[i]
+    if b in array: # 일곱 난쟁이가 아닌 두 난쟁이 발견시 리스트에서 제거 후, 반복문 탈출
+        array.remove(a)
+        array.remove(b)
+        break
+
+for i in range(len(array)): # 일곱 난쟁이의 키 출력
+    print(array[i])
