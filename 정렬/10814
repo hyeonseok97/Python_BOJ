@@ -1,0 +1,13 @@
+# 나이순 정렬
+
+n = int(input()) # 회원의 수를 입력받음.
+array = []
+
+for i in range(n):
+    a, b = input().split()
+    array.append((int(a), b)) # 각 회원의 나이와 이름을 튜플로 리스트에 할당
+
+array.sort(key = lambda x: x[0]) # 회원의 나이를 기준으로 오름차순 정렬
+
+for i in range(n): 
+    print(array[i][0], array[i][1])
