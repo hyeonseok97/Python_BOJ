@@ -1,0 +1,13 @@
+# 가장 긴 증가하는 부분수열 (LIS 알고리즘)
+
+n = int(input()) # n을 입력
+array = list(map(int,input().split())) # 입력받은 수열의 값을 리스트에
+
+dp = [1] * n # dp 테이블의 값을 1로 초기화
+
+for i in range(1, n):
+    for j in range(0,i):
+        if array[i] > array[j]:
+            dp[i] = max(dp[i], dp[j]+1)
+
+print(max(dp))
