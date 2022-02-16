@@ -1,0 +1,19 @@
+# 수리공 항승
+
+n, l = map(int,input().split())# 물이 새는 곳의 개수 n, 테이프의 길이 l 입력
+array = list(map(int,input().split())) # 물이 새는 곳의 위치가 주어짐.
+array.sort() # 물이 새는 곳의 위치를 오름차순으로 정렬
+
+repair = [False] * (max(array)+1)
+count = 0
+
+for i in array:
+    if repair[i] == False:
+        count += 1
+        for j in range(i,i+l):
+          if j <= len(repair)-1:
+            repair[j] = True
+          else:
+            break
+
+print(count)
