@@ -1,0 +1,23 @@
+# 세탁소 사장 동혁
+
+test = int(input())
+a, b, c ,d = 0, 0, 0, 0
+answer = []
+
+for _ in range(test):
+    money = int(input())
+    a += money // 25
+    money %= 25
+    b += money // 10
+    money %= 10
+    c += money // 5
+    money %= 5
+    d += money
+    answer.append([a, b, c, d])
+    a, b, c, d = 0,0,0,0
+
+for i in range(test):
+    for j in range(4):
+        print(answer[i][j], end= ' ')
+    print()
+
