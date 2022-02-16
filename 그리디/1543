@@ -1,0 +1,18 @@
+# 문서 검색
+
+import sys
+input = sys.stdin.readline
+
+string= input().rstrip()
+target = input().rstrip()
+count = 0
+start = 0
+
+while (start != len(string)-len(target)+1):
+    if string[start:start+len(target)] == target:
+        count += 1
+        start += len(target)
+    else: 
+        start += 1
+
+print(count)
