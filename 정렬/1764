@@ -1,0 +1,18 @@
+# 듣보잡
+
+n, m= map(int,input().split())
+
+array_n = set() # 듣도 못한 사람
+for i in range(n):
+    array_n.add(input())
+  
+array_m = set() # 보도 못한 사람
+for i in range(m):
+    array_m.add(input())
+  
+result = list(array_n & array_m) # 집합 자료형에서는 합, 교, 차집합 연산 수행가능
+result.sort()
+
+print(len(result))
+for i in range(len(result)):
+    print(result[i])
