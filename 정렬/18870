@@ -1,0 +1,12 @@
+# 좌표 압축
+
+n =  int(input())
+array = list(map(int, input().split()))
+array_set = list(sorted(set(array)))
+
+result = dict()
+for i in range(len(array_set)):
+    result[array_set[i]] = i
+
+for i in range(len(array)):
+    print(result[array[i]], end=' ')
