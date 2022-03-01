@@ -1,0 +1,39 @@
+# 통계학
+
+from bisect import bisect_left, bisect_right
+
+def count_by_range(array, left_value, right_value):
+    left_index = bisect_left(array, left_value)
+    right_index = bisect_right(array, right_value)
+    return right_index - left_index
+
+n = int(input())
+array = [int(input()) for _ in range(n)]
+array.sort()
+
+first = sum(array)/n # 산술평균
+second = array[n//2] # 중앙값
+forth = max(array) - min(array) # 범위
+
+# 최빈값
+max = 0
+result = []
+for target in sorted(set(array)):
+    count = count_by_range(array,target,target)
+    if count > max:
+       max = count
+       result = []
+       result.append(target)
+    elif count == max:
+       result.append(target)
+
+if len(result) == 1:
+    third = result[0]
+else:
+    third = result[1]
+
+print(int(round(first,0)))
+print(second)
+print(third)
+print(forth)
+
