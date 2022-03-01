@@ -1,0 +1,7 @@
+# 세수 정렬
+
+array = list(map(int, input().split()))
+array.sort()
+
+for i in range(len(array)):
+    print(array[i], end = ' ')
