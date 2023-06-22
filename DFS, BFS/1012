@@ -1,0 +1,39 @@
+import sys 
+sys.setrecursionlimit(10000) 
+
+t = int(input()) # 테스트 횟수 t를 입력받음
+
+# dfs 알고리즘을 통해 최소 지렁이 마릿수를 구하자
+def dfs(x,y,graph):
+  if x<0 or x>n-1 or y<0 or y>m-1:
+    return False
+  if graph[x][y] == 0:
+    return False
+  if graph[x][y] == 1:
+    graph[x][y] = 0
+    dfs(x-1, y, graph)
+    dfs(x+1, y, graph)
+    dfs(x, y-1, graph)
+    dfs(x, y+1, graph)
+    return True
+
+number = []
+
+for _ in range(t):
+  n, m, k = map(int, input().split()) # 공백을 기준으로 행갯수 n, 열갯수 m, 배추의 갯수 k를 입력 받음
+
+  array = [[0] * (m) for _ in range(n)]
+  for _ in range(k): # 배추의 갯수 k 만큼 행, 열에 해당하는 배추 위치를 입력 받음 -> 행, 열을 기준으로 값 1 설정
+    a, b = map(int, input().split())
+    array[a][b] = 1
+
+  result = 0
+  
+  for i in range(n):
+    for j in range(m):
+      if dfs(i,j,array) == True:
+        result += 1
+  number.append(result)
+  
+for i in number: # 필요한 최소한의 지렁이 마리수를 출력
+  print(i)
