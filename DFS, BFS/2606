@@ -1,0 +1,27 @@
+n = int(input()) # 컴퓨터의 수 n개
+m = int(input()) # 간선의 수 m개
+
+# 각 컴퓨터별 연결된 쌍 입력 받음(m번)
+array = [[] for _ in range(n+1)]
+for _ in range(m):
+  a, b = map(int, input().split())
+  array[a].append(b)
+  array[b].append(a)
+
+visited = [False] * (n+1) # 방문처리 리스트
+
+# dfs 알고리즘을 통해 걸린 최대 갯수를 구해보자, 시작노드 방문처리 -> 인접한 노드 중 방문처리하지않는 해당 노드를 기준으로 재귀함수 호출
+def dfs(start):
+  visited[start] = True
+  for i in array[start]:
+    if not visited[i]:
+      dfs(i)
+
+dfs(1)
+
+result = 0
+for i in range(2, len(visited)):
+  if visited[i] == True:
+    result += 1
+
+print(result)
